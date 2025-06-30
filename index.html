@@ -403,6 +403,8 @@
                             </div>
                             <button id="loadStudentsBtn" class="mt-4 bg-primary hover:bg-purple-700 text-white px-6 py-3 rounded-lg">
                                 Load Students
+                                     const loadButton = document.querySelector("#loadStudentsBtn");                           <!-- Add this container to hold the marks entry table -->
+<div id="marksEntryTable">
                                 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const loadButton = document.querySelector("#loadStudentsBtn");
@@ -448,9 +450,7 @@
     });
   });
 </script>
-     const loadButton = document.querySelector("#loadStudentsBtn");                           <!-- Add this container to hold the marks entry table -->
-<div id="marksEntryTable">
-  <!-- The students' marks table will appear here -->
+ <!-- The students' marks table will appear here -->
 </div>
                             </button>
                         </div>
