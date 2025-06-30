@@ -403,6 +403,51 @@
                             </div>
                             <button id="loadStudentsBtn" class="mt-4 bg-primary hover:bg-purple-700 text-white px-6 py-3 rounded-lg">
                                 Load Students
+                                <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const loadButton = document.querySelector("#loadStudentsBtn");
+
+    loadButton.addEventListener("click", function () {
+      const container = document.getElementById("marksEntryTable");
+      if (!container) {
+        console.error("marksEntryTable container not found");
+        return;
+      }
+
+      // Example dummy students – replace with your Firebase/API result
+      const students = [
+        { name: "John Doe", admissionNo: "PP2001" },
+        { name: "Jane Wambui", admissionNo: "PP2002" }
+      ];
+
+      // Clear previous table
+      container.innerHTML = "";
+
+      // Create table
+      const table = document.createElement("table");
+      table.border = "1";
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Admission No</th>
+            <th>Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${students.map(s => `
+            <tr>
+              <td>${s.name}</td>
+              <td>${s.admissionNo}</td>
+              <td><input type="number" min="0" max="100" /></td>
+            </tr>
+          `).join("")}
+        </tbody>
+      `;
+      container.appendChild(table);
+    });
+  });
+</script>
                                 <!-- Add this container to hold the marks entry table -->
 <div id="marksEntryTable">
   <!-- The students' marks table will appear here -->
